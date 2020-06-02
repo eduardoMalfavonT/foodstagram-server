@@ -10,10 +10,23 @@
     "type": "git",
     "url": "git+https://github.com/Metoosky00/foodstagram-server.git"
   },
-  "author": "",
+  "author": "Eduardo Malfavon",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Metoosky00/foodstagram-server/issues"
   },
-  "homepage": "https://github.com/Metoosky00/foodstagram-server#readme"
+  "homepage": "https://github.com/Metoosky00/foodstagram-server#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.16",
+    "multer": "^1.4.2",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
