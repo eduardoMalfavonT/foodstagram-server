@@ -4,6 +4,7 @@
   "description": "Este sera el servidor para la pagina y la aplicacion movil de foodstagram",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
