@@ -1,4 +1,4 @@
-const Clientes = require("../Models/Clientes"); //crear el modelo para clientes
+const Clientes = require("../Models/Clientes");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -17,7 +17,7 @@ exports.nuevoCliente = async (req, res, next) => {
 //Mostrar todos los clientes
 exports.mostrarClientes = async (req, res, next) => {
   try {
-    const clientes = await Clientes.find({}, { password: 0 });
+    const clientes = await Clientes.find({}, { password: 0, __v: 0 });
     res.json(clientes);
   } catch (error) {
     console.log(error);
@@ -29,6 +29,7 @@ exports.mostrarCliente = async (req, res, next) => {
   try {
     const cliente = await Clientes.findById(req.params.idCliente, {
       password: 0,
+      __v: 0,
     });
     if (!cliente) {
       res.json({
@@ -44,6 +45,7 @@ exports.mostrarCliente = async (req, res, next) => {
 //Actualizar un cliente mediante du id
 exports.actualizarCliente = async (req, res, next) => {
   try {
+    req.body.password = await bcrypt.hash(req.body.password, 12);
     const cliente = await Clientes.findOneAndUpdate(
       { _id: req.params.idCliente },
       req.body,

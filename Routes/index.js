@@ -27,7 +27,10 @@ module.exports = function () {
   //Mostrar todos los productos
   router.get("/productos", productoController.mostrarProductos);
   //mostrar productos por categoria
-  router.get("/productos", productoController.mostrarProductosCategoria);
+  router.get(
+    "/productos/:categoria",
+    productoController.mostrarProductosCategoria
+  );
   //Mostrar un solo producto
   router.get("/producto/:idProducto", productoController.mostrarProducto);
   //Actualizar un producto

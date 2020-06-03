@@ -64,7 +64,10 @@ exports.mostrarProductos = async (req, res, next) => {
 
 exports.mostrarProductosCategoria = async (req, res, next) => {
   try {
-    const productos = await Productos.find({ categoria }, { __v: 0 });
+    const productos = await Productos.find(
+      { categoria: req.params.categoria },
+      { __v: 0 }
+    );
     res.json(productos);
   } catch (error) {
     console.log(error);
