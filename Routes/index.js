@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-// const clienteController = require("../controllers/clienteController");
-// const productoController = require("../controllers/productoController");
-// const ventasController = require("../controllers/ventasController");
+const clienteController = require("../Controllers/clienteController");
+const productoController = require("../Controllers/productoController");
+const ventasController = require("../Controllers/ventasController");
 //Crear un auth para autentificacion con json web tokens
 module.exports = function () {
-  /*-----------------------------------------------------------Rutas-------------------------------------------------------- */
-  /*---------------------------------------------------Rutas para cleintes------------------------------------------------ */
+  /*----------------------------------------Rutas--------------------------------------------------- */
+  /*----------------------------------Rutas para cleintes------------------------------------------- */
   //Crear un nuevo cliente
   router.post("/cliente/nuevoCliente", clienteController.nuevoCliente);
   //Mostrar todos los clientes
@@ -17,7 +17,7 @@ module.exports = function () {
   router.put("/cliente/:idCliente", clienteController.actualizarCliente);
   //Eliminar un cliente
   router.delete("/cliente/:idCliente", clienteController.eliminarCliente);
-  /*-------------------------------------------------Rutas para productos----------------------------------------------- */
+  /*----------------------------------Rutas para productos----------------------------------------- */
   //Crear nuevo producto
   router.post(
     "/producto/nuevoProducto",
@@ -38,7 +38,7 @@ module.exports = function () {
   );
   //Eliminar un producto
   router.delete("/producto/:idProducto", productoController.eliminarProducto);
-  /*---------------------------------------------------Rutas para ventas--------------------------------------------------*/
+  /*-------------------------------------Rutas para ventas-----------------------------------------*/
   //Crear una nueva venta
   router.post("/venta/nuevaVenta", ventasController.nuevaVenta);
   //Mostrar todas las ventas
