@@ -46,6 +46,8 @@ module.exports = function () {
   router.post("/venta/nuevaVenta", ventasController.nuevaVenta);
   //Mostrar todas las ventas
   router.get("/ventas", ventasController.mostrarVentas);
+  //Mostrar todas las ventas de un cliente pasando el id del cliente
+  router.get("/ventas/:idCliente", ventasController.mostrarVentasDelCliene);
   //Mostrar una venta
   router.get("/venta/:idVenta", ventasController.mostrarVenta);
   //Actualizar una venta

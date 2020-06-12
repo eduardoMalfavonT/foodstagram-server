@@ -6,7 +6,7 @@ const ventasSchema = new Schema({
   cliente: { type: Schema.ObjectId, ref: "Clientes" },
   carrito: [
     {
-      producto: [{ type: Schema.ObjectId, ref: "Productos" }],
+      producto: { type: Schema.ObjectId, ref: "Productos" },
       cantidad: { type: Number },
     },
   ],

@@ -47,6 +47,26 @@ exports.mostrarVenta = async (req, res, next) => {
   }
 };
 
+//Mostrar todas las ventas de un cliente pasando el id del cliente
+exports.mostrarVentasDelCliene = async (req, res, next) => {
+  try {
+    const venta = await Ventas.find({
+      cliente: req.params.idCliente,
+    })
+      .populate("usuario", { password: 0 })
+      .populate({ path: "carrito.producto", model: "Productos" });
+    if (!venta) {
+      res.json({ mensaje: "Esa venta no existe" });
+      return next();
+    }
+    res.json(venta);
+  } catch (error) {
+    console.log(error);
+    res.json({ mensaje: "Hubo un error al mostrar la venta" });
+    next();
+  }
+};
+
 //Actualizar una venta mediante su id
 exports.actualizarVenta = async (req, res, next) => {
   try {
