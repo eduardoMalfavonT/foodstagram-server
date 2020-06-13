@@ -72,6 +72,7 @@ exports.eliminarCliente = async (req, res, next) => {
 //Para la autenticacion del cliente
 exports.autenticarCliente = async (req, res, next) => {
   const { email, password } = req.body;
+  console.log(email, password);
   const cliente = await Clientes.findOne({ email });
   if (!cliente) {
     await res.status(401).json({
@@ -89,8 +90,8 @@ exports.autenticarCliente = async (req, res, next) => {
       const token = jwt.sign(
         {
           email: cliente.email,
-          nombre: usuario.nombre,
-          _id: usuario._id,
+          nombre: cliente.nombre,
+          _id: cliente._id,
         },
         "LLAVESECRETA",
         {

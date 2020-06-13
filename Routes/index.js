@@ -17,6 +17,9 @@ module.exports = function () {
   router.put("/cliente/:idCliente", clienteController.actualizarCliente);
   //Eliminar un cliente
   router.delete("/cliente/:idCliente", clienteController.eliminarCliente);
+  //Liga para iniciar sesion
+  router.post("/login", clienteController.autenticarCliente);
+
   /*----------------------------------Rutas para productos----------------------------------------- */
   //Crear nuevo producto
   router.post(
