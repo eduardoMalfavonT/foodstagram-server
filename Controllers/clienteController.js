@@ -72,7 +72,6 @@ exports.eliminarCliente = async (req, res, next) => {
 //Para la autenticacion del cliente
 exports.autenticarCliente = async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(email, password);
   const cliente = await Clientes.findOne({ email });
   if (!cliente) {
     await res.status(401).json({
